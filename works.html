@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调音作品 | 立葵_Tachi</title>
+    <style>
+        body { margin: 0; padding: 40px 20px; background-color: #0a0a0a; color: #fff; font-family: -apple-system, sans-serif; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .back-btn { position: fixed; top: 20px; left: 20px; color: #aaa; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9em; transition: 0.3s;}
+        .back-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        h1 { font-size: 2em; margin-bottom: 30px; letter-spacing: 2px; }
+        .video-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; margin-bottom: 30px; backdrop-filter: blur(10px); }
+        .video-item iframe { width: 100%; aspect-ratio: 16/9; border-radius: 8px; border: none; }
+        .video-info { margin-top: 15px; text-align: left; }
+        .video-info h3 { margin: 0 0 5px; font-size: 1.2em; }
+        .video-info p { margin: 0; color: #888; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← 返回主页</a>
+    <div class="container">
+        <h1>调音作品集</h1>
+        
+        <!-- 作品 1 -->
+        <div class="video-item">
+            <!-- 把下面的 src 换成你B站视频的嵌入地址 -->
+            <iframe src="//player.bilibili.com/player.html?bvid=BV1eeJt6pEiU&page=1&autoplay=0" scrolling="no" border="0" allowfullscreen="true"></iframe>
+            <div class="video-info">
+                <h3>「重音テト+α」あなたしか見えないの「r-906」_UTAU调教演示</h3>
+                <p>使用 UTAU 进行调教，保留适当的机械音声。</p>
+            </div>
+        </div>
+
+        <!-- 作品 2 (直接复制上面的 div 就可以添加更多作品) -->
+        <!-- 
+        <div class="video-item">
+             ...
+        </div> 
+        -->
+    </div>
+</body>
+</html>
