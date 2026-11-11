@@ -3,63 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>立葵_Tachi | 个人工作室</title>
+    <title>立葵_Tachi  Vocaloid调音师</title>
     <style>
-        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; margin: 0; padding: 0; background: #f9f9fb; color: #333; }
-        header { background: #fff; padding: 40px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        h1 { margin: 0; font-size: 2.5em; color: #2c3e50; }
-        p.subtitle { color: #7f8c8d; margin-top: 10px; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .card { background: #fff; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-decoration: none; color: inherit; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .icon { font-size: 2.5em; margin-bottom: 15px; display: block; }
-        .title { font-size: 1.2em; font-weight: bold; margin-bottom: 10px; }
-        .desc { font-size: 0.9em; color: #666; }
-        footer { text-align: center; padding: 30px; color: #aaa; font-size: 0.9em; margin-top: 40px; }
+        /* 基础全局设置 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a; /* 深色背景 */
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            /* 模拟音频波形的极简背景 */
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 20px),
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 20px);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 头部个人简介区 */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            margin-bottom: 25px;
+            background-color: #1a1a1a; /* 占位背景色，以后换成你的头像图片 */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            color: #aaa;
+            margin-top: 10px;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #888;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 作品集卡片网格区 */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 40px 20px 80px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        /* 高级感卡片设计 (玻璃拟态) */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .card .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.8;
+            transition: transform 0.4s ease;
+        }
+        .card:hover .icon {
+            transform: scale(1.1);
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        .card p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #555;
+            font-size: 0.85em;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>👋 你好，我是 立葵_Tachi</h1>
-        <p class="subtitle">这里是我存放声音、代码和奇思妙想的数字小窝</p>
+        <div class="avatar">🎧</div>
+        <h1>Aoitachi</h1>
+        <p class="subtitle">擅长UTAU,Synthesizer V™和VOCALOID™的调音师</p>
+        <div class="tags">
+            <span class="tag">VOCALOID</span>
+            <span class="tag">UTAU</span>
+            <span class="tag">Synthesizer V</span>
+        </div>
     </header>
 
     <div class="container">
         <div class="grid">
-            <!-- 声音仓库 -->
             <a href="#" class="card">
                 <span class="icon">🎙️</span>
-                <div class="title">声音仓库</div>
-                <div class="desc">我的声库作品、CV 录音及演示片段</div>
+                <h3>调音作品</h3>
+                <p>B站投稿、工程展示</p>
             </a>
             
-            <!-- 工程与代码 -->
             <a href="#" class="card">
-                <span class="icon">🛠️</span>
-                <div class="title">工程与代码</div>
-                <div class="desc">软件作品、开源项目及工程文件下载</div>
+                <span class="icon">💾</span>
+                <h3>工程与资源</h3>
+                <p>自用工程、调音、自作UTAU声库、工程及免费素材分享</p>
             </a>
 
-            <!-- 资源分享 -->
-            <a href="#" class="card">
-                <span class="icon">📦</span>
-                <div class="title">资源分享</div>
-                <div class="desc">素材、教程及其他实用资源的下载</div>
-            </a>
-
-            <!-- 个人文章 -->
             <a href="#" class="card">
                 <span class="icon">📝</span>
-                <div class="title">个人文章</div>
-                <div class="desc">技术笔记、日常随笔与生活记录</div>
+                <h3>个人随笔</h3>
+                <p>喵喵喵。！</p>
             </a>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Aoitachi. All rights reserved. Designed with Qwen 4' s help| 欢迎随时来访~</p>
+        <p>© 2026 Aoitachi. All rights reserved.</p>
     </footer>
 
 </body>
